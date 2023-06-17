@@ -1,0 +1,15 @@
+{{ block title }}
+    收益报告
+{{ endblock }}
+
+{{ block content }}
+    <p>出场费：{{ participation_fee }}</p>
+    <p>player中的earned：{{ player.earned }}</p>
+    <p>player中的payoff：{{ player.payoff }}</p>
+    <p>participant中的payoff：{{ participant.payoff }}</p>
+    <p>以实际货币计算的participant中的payoff：{{ payoff_cu }}</p>
+    <p>总收益（含出场费）{{ total_payment }}</p>
+    {{ next_button }}
+{{ endblock }}
+
+

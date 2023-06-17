@@ -1,0 +1,20 @@
+{{ block title }}
+    第{{ player.round_number }}轮决策
+{{ endblock }}
+
+{{ block content }}
+
+    <p>
+        <ul>
+            <li>在这个实验中你和另外两人随机配对，组内共有{{ C.PLAYERS_PER_GROUP }}人。</li>
+            <li>每人都有实验点{{ C.ENDOWMENT }}。</li>
+            <li>投入公共池中的实验点会乘以{{ C.MULTIPLIER }}。</li>
+        </ul>
+    </p>
+
+
+    {{ formfields }}
+
+    {{ next_button }}
+
+{{ endblock }}

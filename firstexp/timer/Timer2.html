@@ -1,0 +1,27 @@
+{{ block title }}
+    倒计时页面二
+{{ endblock }}
+
+{{ block content }}
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+
+<p>
+    剩余 <span id="time-left"></span> 秒
+</p>
+
+<script>
+    let customTimerEle = document.getElementById('time-left');
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            customTimerEle.innerText = event.offset.totalSeconds;
+        });
+    });
+</script>
+
+    {{ next_button }}
+
+{{ endblock }}

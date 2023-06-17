@@ -1,0 +1,25 @@
+{{ block title }}
+    第{{ player.round_number }}轮收益报告
+{{ endblock }}
+
+{{ block content }}
+
+    <p>
+        <ul>
+            <li>本轮你投入了{{ player.contribution }}。</li>
+            <li>小组总的贡献额是{{ group.total_contribution }}。</li>
+            <li>组内每人可分得{{ group.individual_share }}。</li>
+            <li>你的本轮收益是{{ player.payoff }}。</li>
+        </ul>
+    </p>
+    {{ if player.round_number == C.NUM_ROUNDS }}
+    <p>
+        你的{{ C.NUM_ROUNDS }}轮总收益是{{ participant.payoff }}。
+    </p>
+    {{ endif }}
+
+    {{ next_button }}
+
+{{ endblock }}
+
+

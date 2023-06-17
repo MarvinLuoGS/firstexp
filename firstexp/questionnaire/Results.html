@@ -1,0 +1,18 @@
+{{ block title }}
+    问卷内容展示
+{{ endblock }}
+
+{{ block content }}
+    <p> 您就读的学校是 {{ player.school }}</p>
+    <p> 您的年龄是 {{ player.age }}</p>
+    <p> 您的性别是 {{ gender_text }}</p>
+    <p> 您现在是 {{ grade_text }}</p>
+    {{ if player.major == True}}
+    <p> 您<b>主修</b>经济类专业</p>
+    {{ else }}
+    <p> 您<b>不主修</b>经济类专业</p>
+    {{ endif }}
+    
+{{ endblock }}
+
+

@@ -1,0 +1,37 @@
+{{ block title }}
+收益报告-第{{ player.round_number }}轮
+{{ endblock }}
+{{ block content }}
+
+    {{ if player.id_in_group == 1 }}
+        <p>
+            本轮您有实验点{{ C.ENDOWMENT }}，
+            您发送给角色B {{ group.sent_amount }}，
+            角色B返还 {{ group.sent_back_amount }}。
+        </p>
+        <p>
+            本轮您的收益点数:
+            {{ C.ENDOWMENT }}-{{ group.sent_amount }}+{{ group.sent_back_amount }}=<strong>{{ player.payoff }}</strong>
+        </p>
+    {{ else }}
+        <p>
+            角色A发送给您 {{ group.sent_amount }}，
+            放大后您的点数是 {{ tripled_amount }}，
+            您返还了 {{ group.sent_back_amount }}。
+        </p>
+        <p>
+            本轮您的收益点数:
+            ({{ tripled_amount }})-({{ group.sent_back_amount }})=<strong>{{ player.payoff }}</strong>
+        </p>
+    {{ endif }}
+
+    {{ if player.round_number == C.NUM_ROUNDS }}
+        <p>
+            在{{ C.NUM_ROUNDS }}轮中，您一共获得实验点{{ participant.payoff }}
+        </p>
+    {{ endif }}
+
+    <p>{{ next_button }}</p>
+
+
+{{ endblock }}

@@ -1,0 +1,74 @@
+{{ block title }}
+    倒计时页面四
+{{ endblock }}
+
+{{ block content }}
+<p id="timer_posi">剩余时间：</p>
+    {{ next_button }}
+<script>
+//自己设定的倒计时，倒计时结束不会提交当前页面
+//var m = 1;
+//var s = 0;
+$(document).ready(function(){
+    window.onload = function(){
+        var time;
+        //获取待修改元素
+        var pTime = document.getElementById('timer_posi');
+        //设定倒计时的分和秒
+        var m = 0;
+        var s = 30;
+        var total_time = m*60+s;
+        //防止页面刷新重新开始倒计时的代码
+        //如果在能找到某个值countDown，则说明已刷新过
+        if(sessionStorage.getItem('countDown')){
+            time = sessionStorage.getItem('countDown'); 
+            var time1 = new Date().getTime(); //获取当前时间
+            var remain_time = total_time - (time1-time)/1000 //获取剩余时间（s)
+            m = Math.floor(remain_time/60);
+            if (remain_time < 60){
+                s = Math.floor(remain_time);
+            };
+            if (remain_time >= 60){
+                s = Math.floor(remain_time - m*60)
+            };
+            //m = m - Math.floor((time1-time)/1000/60); //倒计时时长-(现在时间-开始时间)=剩余时长
+            //s = s - Math.floor((time1-time)/1000%60);
+        }else{
+            time = new Date().getTime(); //没有刷新过，则获取当前时间作为页面开始时间，并保存为countDown
+            sessionStorage.setItem('countDown',time);
+
+        };
+        //设定计时器，利用setInterval(function(),1000)，表示每过1秒（1000毫秒）执行一次function()
+        var timer = setInterval(function(){
+            //如果上一次秒是00，则改变取值：比如4：00后显示3：59
+            if(s == '00' && m > 0){
+                s = 59;
+                m--;
+            } else{ //否则只是秒值递减
+                s--;
+            };
+            //如果秒值是0-9，则拼接一个0，显示为“01”形式
+            if(s >= 0 && s <10){
+                s = '0' + Number(s)
+            };
+            //如果分值是0-9，则拼接一个0，显示为“01”形式
+            if(m >= 0 && m <10){
+                m = '0' + Number(m)
+            }
+            //拼接字符串，用于显示
+            time_text = "剩余时间："+m+":"+s;
+            pTime.innerHTML = time_text;
+            //在倒计时结束后，额外添加加红加粗的提醒语
+            if (s <= 0 && m <= 0) {
+                clearInterval(timer); //使用这个代码将在倒计时结束后清除倒计时，最终只会显示00：00
+                //如果不使用这个代码，秒上的取值会为负，比如“00:-4”
+                time_text = "剩余时间：00:00";
+                pTime.innerHTML = time_text + '<p><b><font color=\'red\'>请尽快决策！</font></b></p>';
+            }
+        },1000)
+    };
+})
+</script>
+{{ endblock }}
+
+

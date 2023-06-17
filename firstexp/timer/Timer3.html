@@ -1,0 +1,18 @@
+{{ block title }}
+    倒计时页面三
+{{ endblock }}
+
+{{ block content }}
+
+    {{ next_button }}
+<script>
+    setTimeout(
+        function () {
+            alert("倒计时结束，请做出决策！");
+        },
+        10*1000 // 60 seconds
+    );
+</script>
+{{ endblock }}
+
+

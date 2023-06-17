@@ -1,0 +1,19 @@
+{{ block title }}
+    角色B决策-第{{ player.round_number }}轮
+{{ endblock }}
+{{ block content }}
+
+    <p>
+        您是角色B。
+        角色A发送了实验点{{ group.sent_amount }}，因此你获得实验点{{ tripled_amount }}。
+        您将会返还多少实验点给角色A？
+    </p>
+
+    {{ formfields }}
+    <p>
+    {{ next_button }}
+    </p>
+
+    {{ include_sibling 'instructions.html' }}
+
+{{ endblock }}

@@ -1,0 +1,11 @@
+{{ block title }}
+    展示数字
+{{ endblock }}
+
+{{ block content }}
+    <p>这是同一app的第{{ player.round_number }}轮</p>
+    <p>你在上一轮中输入的数字是{{ number_round_1 }}</p>
+    {{ next_button }}
+{{ endblock }}
+
+

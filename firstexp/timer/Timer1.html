@@ -1,0 +1,30 @@
+{{ block title }}
+    倒计时页面一
+{{ endblock }}
+
+{{ block content }}
+<!-- 用于隐藏oTrre自带的timer -->
+<!--
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+-->
+
+<!-- 用于倒计时10秒时显示oTree的计时器 -->
+<!--
+<script>
+    let customTimerEle = document.getElementById('time-left');
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 10) {
+                $('.otree-timer').show();
+            };
+        });
+    });
+</script>
+-->
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,17 @@
+{{ block title }}
+    角色A决策-第{{ player.round_number }}轮
+{{ endblock }}
+{{ block content }}
+
+    <p>
+        您是角色A。您有实验点{{C.ENDOWMENT}}。您会发送多少给角色B？
+    </p>
+
+    {{ formfields }}
+    <p>
+    {{ next_button }}
+    </p>
+
+    {{ include_sibling 'instructions.html' }}
+
+{{ endblock }}

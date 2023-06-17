@@ -1,0 +1,29 @@
+{{ block title }}
+    问卷调查
+{{ endblock }}
+{{ block content }}
+
+    {{ formfields }}
+    
+    {{ next_button }}
+    <!-- 下面是一段在前端判断文本框输入值是否为某个数值的代码示例 -->
+    <!-- 使用这个方法需要把自带的next_button删掉，并且不需要在py文件里写error_message -->
+    <!--
+    <p id='warn1' hidden style='text-align:right'><b>填写有误，请检查！</b></p>
+    <p style='margin-top:0.5cm;'>
+        <button type = 'button' class="otree-btn-next btn btn-primary" id="btn" style='float:right' onclick = 'check_correct()'>确定</button>
+    </p>
+    <script>
+        function check_correct(){
+            var testvar = document.getElementsByName('attention')[0].value;
+            if(testvar == 1234){
+                document.getElementById('warn1').setAttribute('hidden',true);
+                document.getElementById('btn').removeAttribute('type');
+            } else{
+                document.getElementById('btn').type = 'button';
+                document.getElementById('warn1').removeAttribute('hidden')
+            };
+        }
+    </script>
+    -->
+{{ endblock }}

@@ -4,8 +4,14 @@
 
 {{ block content }}
 <p id="timer_posi">剩余时间：</p>
-    {{ next_button }}
+    
+    <button class="otree-btn-next btn btn-primary" id="btn" style='float:left'>下一页</button>
 <script>
+    const myButton = document.getElementById('btn');
+    myButton.addEventListener('click', removeItem);
+    function removeItem(){
+        sessionStorage.removeItem('countDown');
+    }
 //自己设定的倒计时，倒计时结束不会提交当前页面
 //var m = 1;
 //var s = 0;

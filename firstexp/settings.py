@@ -7,7 +7,7 @@ SESSION_CONFIGS = [
         app_sequence = ['trustgame','questionnaire'],
         num_demo_participants = 2,
     ),
-     dict(
+    dict(
         name = 'questionnaire',
         display_name = 'questionnaire',
         app_sequence = ['questionnaire'],

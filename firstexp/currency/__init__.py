@@ -27,7 +27,16 @@ class Player(BasePlayer):
 def set_payoff(player):
     player.payoff = 2 * player.earned
 
-
+#定义自定义数据输出格式
+def custom_export(players):
+    # 定义表头
+    yield ['session_code', ' participant_code', 'id_in_group', 'earned', 'payoff']
+    for p in players:
+        participant = p.participant
+        session = p.session
+        # 定义输出的数据对应字段
+        yield [session.code, participant.code, p.id_in_group, p.earned, p.payoff]
+        
 # PAGES
 class MyPage(Page):
     form_model = 'player'
